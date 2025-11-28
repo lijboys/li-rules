@@ -1,0 +1,28 @@
+payload:
+  # Description: 番茄小说防误杀 (直连/放行部分)
+  # Source: https://github.com/changzhaoCZ/fqnovel-adrules
+  # Converted for Clash Rule Provider
+  # 注意：此列表策略应设置为 DIRECT
+
+  # 我的消息显示
+  - DOMAIN,reading.snssdk.com
+  - DOMAIN,lf-fe.fqnovelstatic.com
+
+  # 完整排行榜
+  - DOMAIN,lf-normal-gr-sourcecdn.bytegecko.com
+
+  # 首页误拦截 & 评论区 & 登录
+  # 由于Clash不支持复杂的url路径匹配，这里放行相关子域名
+  - DOMAIN-SUFFIX,fqnovel.com
+  - DOMAIN-SUFFIX,zijieapi.com
+  - DOMAIN,security.snssdk.com
+
+  # 金币福利
+  - DOMAIN,lf-sourcecdn-tos.bytegecko.com
+
+  # 漫画与插图修复
+  - DOMAIN,p3-novel1-sign.byteimg.com
+  - DOMAIN,p6-novel1-sign.byteimg.com
+  - DOMAIN,p9-novel1-sign.byteimg.com
+  # p*-novel-sign.byteimg.com
+  - DOMAIN-SUFFIX,novel-sign.byteimg.com
