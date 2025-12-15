@@ -1,0 +1,173 @@
+payload:
+  # Description: TT拒绝列表 - 广告拦截部分
+  # Source: TTDNS (Converted for Clash)
+
+  # --- 七猫免费小说 ---
+  - DOMAIN-SUFFIX,sdk-ab-config.aiclk.com
+  - DOMAIN-SUFFIX,adx.maplehaze.cn
+  - DOMAIN-SUFFIX,qm989.com
+  - DOMAIN-SUFFIX,touch-moblie.com
+  - DOMAIN-SUFFIX,cn-fp.apitd.net
+  - DOMAIN-SUFFIX,sdkoptedge.chinanetcenter.com
+  - DOMAIN-SUFFIX,dutils.com
+  - DOMAIN-SUFFIX,sm.cn
+  - DOMAIN-SUFFIX,lupic.cdn.bcebos.com
+  - DOMAIN-SUFFIX,irs03.com
+  - DOMAIN-SUFFIX,jietuhb.com
+  - DOMAIN-SUFFIX,shuzilm.cn
+
+  # --- 书旗小说 ---
+  - DOMAIN-SUFFIX,msg.qy.net
+  - DOMAIN-SUFFIX,tanx.com
+  - DOMAIN-SUFFIX,taobao.com
+  - DOMAIN-SUFFIX,gm.mmstat.com
+  - DOMAIN-SUFFIX,t7z.cupid.iqiyi.com
+  - DOMAIN-SUFFIX,uc.cn
+
+  # --- 微信公众号广告 ---
+  - DOMAIN-SUFFIX,appcfg.v.qq.com
+  - DOMAIN-SUFFIX,as.yyymvp.com
+  - DOMAIN-SUFFIX,adsdk.idmzj.com
+  - DOMAIN-SUFFIX,wxs.qq.com
+  - DOMAIN-SUFFIX,xj.gtimg.cn
+  - DOMAIN-SUFFIX,midas.gtimg.cn
+  - DOMAIN-SUFFIX,wxsnsdythumb.wxs.qq.com
+  - DOMAIN-SUFFIX,badjs.weixinbridge.com
+  - DOMAIN-SUFFIX,wxsnsdy.wxs.qq.com
+
+  # --- 快手广告 ---
+  - DOMAIN-SUFFIX,log-sdk.ksapisrv.com
+  - DOMAIN-REGEX,^p.*-yx\.adkwai\.com
+  - DOMAIN-SUFFIX,e.kuaishou.com
+  - DOMAIN-REGEX,^p.*-lm\.ad.*kwai\.com
+  - DOMAIN-SUFFIX,v4-lm.adukwai.com
+  - DOMAIN-REGEX,^p.*-ff\.ad.*kwai\.com
+  - DOMAIN-REGEX,^p.*-ad\.ad.*kwai\.com
+  - DOMAIN-SUFFIX,open.e.kuaishou.com
+  - DOMAIN-SUFFIX,open.e.kuaishou.cn
+  - DOMAIN-SUFFIX,open.kuaishouzt.com
+
+  # --- 腾讯广告 ---
+  - DOMAIN-SUFFIX,tdid.m.qq.com
+  - DOMAIN-SUFFIX,a.ac.qq.com
+  - DOMAIN-SUFFIX,ugdtimg.com
+  - DOMAIN-SUFFIX,cfg.imtt.qq.com
+  - DOMAIN-SUFFIX,otheve.beacon.qq.com
+  - DOMAIN-SUFFIX,adsmind.gdtimg.com
+  - DOMAIN-SUFFIX,sdkreport.e.qq.com
+  - DOMAIN-SUFFIX,android.bugly.qq.com
+  - DOMAIN-SUFFIX,gdt.qq.com
+  - DOMAIN-SUFFIX,h.trace.qq.com
+  - DOMAIN-SUFFIX,ad.qq.com
+  - DOMAIN-SUFFIX,qzs.gdtimg.com
+  - DOMAIN-SUFFIX,pgdt.gtimg.cn
+
+  # --- 知乎广告 ---
+  - DOMAIN-SUFFIX,klink.volceapplog.com
+  - DOMAIN-SUFFIX,toblog.volceapplog.com
+  - DOMAIN-SUFFIX,tobapplog.volceapplog.com
+  - DOMAIN-SUFFIX,open.snssdk.com
+
+  # --- 百度贴吧 ---
+  - DOMAIN-SUFFIX,baidu.com
+  - DOMAIN-SUFFIX,als.baidu.com
+  - DOMAIN-SUFFIX,mobads.baidu.com
+  - DOMAIN-REGEX,^nadvideo.*\.baidu\.com
+  - DOMAIN-SUFFIX,feed-image.baidu.com
+
+  # --- 优酷广告 ---
+  - DOMAIN-SUFFIX,iyes.youku.com
+  - DOMAIN-SUFFIX,ipm.atm.youku.com
+  - DOMAIN-SUFFIX,ems.youku.com
+  - DOMAIN-SUFFIX,vali-g1.cp31.ott.cibntv.net
+  - DOMAIN-SUFFIX,image.uczzd.cn
+
+  # --- 游戏广告 ---
+  - DOMAIN-SUFFIX,microfun.cn
+
+  # --- 极光推送 ---
+  - DOMAIN-SUFFIX,jpush.cn
+  - DOMAIN-SUFFIX,jpush.com
+
+  # --- UC浏览器 ---
+  - DOMAIN-SUFFIX,px.ucweb.com
+
+  # --- 网易有道词典 ---
+  - DOMAIN-SUFFIX,ad-sdk-config.youdao.com
+
+  # --- 讯飞输入法 ---
+  - DOMAIN-REGEX,^s.*voicecloud\.cn
+
+  # --- 淘宝 ---
+  - DOMAIN-SUFFIX,wcp.taobao.com
+
+  # --- QQ浏览器/荣耀 ---
+  - DOMAIN-SUFFIX,kde.qq.com
+  - DOMAIN-SUFFIX,adx-drcn.op.dbankcloud.cn
+
+  # --- 移动广告平台 ---
+  - DOMAIN-SUFFIX,fp-it.fengkongcloud.com
+  - DOMAIN-SUFFIX,youjingnetwork.com
+  - DOMAIN-SUFFIX,adx-data.yfanads.com
+  - DOMAIN-SUFFIX,sdk.open.phone.igexin.com
+  - DOMAIN-SUFFIX,sdk-open-phone.getui.com
+  - DOMAIN-SUFFIX,1rtb.net
+  - DOMAIN-SUFFIX,mssdk.volces.com
+  - DOMAIN-SUFFIX,wanchuweilai.com
+  - DOMAIN-SUFFIX,beizi.biz
+  - DOMAIN-SUFFIX,sigmob.com
+  - DOMAIN-SUFFIX,sigmob.cn
+  - DOMAIN-SUFFIX,telecome.cn
+  - DOMAIN-SUFFIX,unioncom.cc
+
+  # --- 京东 ---
+  - DOMAIN-SUFFIX,im-x.jd.com
+  - DOMAIN-SUFFIX,sdk.e.qq.com
+  - DOMAIN-SUFFIX,janapi.jd.com
+  - DOMAIN-SUFFIX,xlog.jd.com
+  - DOMAIN-SUFFIX,dsp-x.jd.com
+  - DOMAIN-SUFFIX,uranus.jd.com
+  - DOMAIN-SUFFIX,addata.jd.com
+  - DOMAIN-SUFFIX,zt.jd.com
+
+  # --- 喜马拉雅 ---
+  - DOMAIN-REGEX,^api-p.*\.yksdks\.com
+  - DOMAIN-SUFFIX,cdn-api-verify.mob.com
+  - DOMAIN-SUFFIX,adse.ximalaya.com
+  - DOMAIN-SUFFIX,xdcs-collector.ximalaya.com
+  - DOMAIN-SUFFIX,adbehavior.ximalaya.com
+  - DOMAIN-SUFFIX,log-verify.mob.com
+
+  # --- 京东存储/图片 ---
+  - DOMAIN-SUFFIX,img1.360buyimg.com
+  - DOMAIN-SUFFIX,ali-stats.jpush.cn
+  - DOMAIN-SUFFIX,adse.wsa.ximalaya.com
+  - DOMAIN-SUFFIX,pns.ximalaya.com
+  - DOMAIN-SUFFIX,adsehera.ximalaya.com
+
+  # --- 字节跳动 ---
+  - DOMAIN-SUFFIX,dm.toutiao.com
+  - DOMAIN-SUFFIX,log.snssdk.com
+  - DOMAIN-SUFFIX,anythinktech.com
+  - DOMAIN-SUFFIX,ugsdk.cn
+  - DOMAIN-SUFFIX,vas-lf-x.snssdk.com
+  - DOMAIN-SUFFIX,video-dsp.pddpic.com
+  - DOMAIN-SUFFIX,aiclk.com
+  - DOMAIN-SUFFIX,hubcloud.com.cn
+
+  # --- 通杀规则 (正则) ---
+  - DOMAIN-REGEX,.*adservice.*
+  - DOMAIN-REGEX,.*pglstatp.*
+  - DOMAIN-REGEX,.*byteorge.*
+  - DOMAIN-REGEX,.*bytegoofy.*
+  - DOMAIN-REGEX,.*bytedance.*
+  - DOMAIN-REGEX,.*ad-sign.*
+  - DOMAIN-REGEX,.*mgsdk-sign.*
+  - DOMAIN-REGEX,.*pangolin.*
+  - DOMAIN-REGEX,.*adsmind.*
+  - DOMAIN-REGEX,.*ad\.wtzw\.com.*
+  - DOMAIN-REGEX,.*zijieapi.*
+  - DOMAIN-REGEX,.*ibytedapm.*
+  - DOMAIN-REGEX,.*aligames.*
+  - DOMAIN-REGEX,.*tsyouto.*
+  - DOMAIN-REGEX,.*umeng.*
