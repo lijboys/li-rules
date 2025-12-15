@@ -1,9 +1,9 @@
 payload:
-  # Description: 番茄小说去广告 (拦截部分)
+  # Description: 番茄小说去广告 (拦截部分) - Updated
   # Source: https://github.com/changzhaoCZ/fqnovel-adrules
   # Converted for Clash Rule Provider
 
-  # 关键词匹配 (Keywords)
+  # --- 关键词匹配 (Keywords) ---
   - DOMAIN-KEYWORD,static
   - DOMAIN-KEYWORD,sealaly
   - DOMAIN-KEYWORD,toutiao
@@ -22,13 +22,14 @@ payload:
   - DOMAIN-KEYWORD,qtaeixd
   - DOMAIN-KEYWORD,erer
   - DOMAIN-KEYWORD,ttweb
+  # [修正] 原规则 ||*sinfonlinec*^ 为通配符，改为 Keyword 更准确
+  - DOMAIN-KEYWORD,sinfonlinec
 
-  # 域名匹配 (Domains & Suffixes)
+  # --- 域名匹配 (Domains) ---
   - DOMAIN,mssdk.zijieapi.com
   - DOMAIN,lf3-reading.fqnovelpic.com
   - DOMAIN,feedback-c.zijieapi.com
   - DOMAIN,dig.bdurl.net
-  - DOMAIN,sinfonlinec
   - DOMAIN,mssdk.volces.com
   - DOMAIN,mon.snssdk.com
   - DOMAIN,toblog.ctobsnssdk.com
@@ -37,17 +38,22 @@ payload:
   - DOMAIN,snssdk.com
   - DOMAIN,bsync3-normal-hl.zijieapi.com
   - DOMAIN,ecombdimg.com
+  - DOMAIN,polaris.zijieapi.com
 
-  # 通配符/正则转换 (Wildcards converted to Suffix/Keyword/Regex)
-  # ads*-normal-*.zijieapi.com -> 尝试使用正则或后缀覆盖
-  - DOMAIN-SUFFIX,zijieapi.com
+  # --- 正则匹配 (Regex) ---
+  # 对应 AdGuard 中的通配符规则，使用正则更精准，防止误杀或漏杀
+  
+  # ads*-normal-*.zijieapi.com
+  - DOMAIN-REGEX,^ads.*-normal-.*\.zijieapi\.com
   # gecko*.zijieapi.com
-  # polaris.zijieapi.com
-  
-  # 修复阅读界面短剧相关
-  - DOMAIN-SUFFIX,bytegecko.com
-  - DOMAIN-SUFFIX,douyinpic.com
-  - DOMAIN-SUFFIX,fqnovel.com
-  
-  # 正则匹配 (Clash Meta/Premium)
+  - DOMAIN-REGEX,^gecko.*\.zijieapi\.com
+  # lf*-webcast-cdn-tos-ncdn.bytegecko.com (修复阅读界面短剧)
+  - DOMAIN-REGEX,^lf.*-webcast-cdn-tos-ncdn\.bytegecko\.com
+  # mon*-misc-*.fqnovel.com (修复阅读界面短剧)
+  - DOMAIN-REGEX,^mon.*-misc-.*\.fqnovel\.com
+  # /[a-zA-Z0-9.-]*-normal\.zijieapi\.com/
   - DOMAIN-REGEX,^[a-zA-Z0-9.-]*-normal\.zijieapi\.com
+
+  # --- 后缀兜底 (Suffixes) ---
+  # 慎用，以免覆盖白名单
+  - DOMAIN-SUFFIX,douyinpic.com
