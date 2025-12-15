@@ -1,0 +1,47 @@
+payload:
+  # Description: TT拒绝列表 - 白名单/防误杀部分
+  # Source: TTDNS (Converted for Clash)
+
+  # --- 番茄免费小说 ---
+  # 真人听书
+  # @@||v3-novelapp.fqnovelvod.com (注释掉的保持注释)
+  # 阅读评论
+  - DOMAIN-SUFFIX,tnc11-aliec2.zijieapi.com
+  # 其他功能
+  - DOMAIN-REGEX,^imapi5-oth-.*\.zijieapi\.com
+  - DOMAIN-SUFFIX,mssdk.zijieapi.com
+  # 话题封面 (去除路径 /obj/joker，放行域名)
+  - DOMAIN-SUFFIX,p3.douyinpic.com
+  # 版本不安全显示
+  - DOMAIN-REGEX,^mssdk3-normal-.*\.zijieapi\.com
+
+  # --- 番茄畅听 ---
+  - DOMAIN-SUFFIX,mssdk5-normal-hl.zijieapi.com
+
+  # --- 快手 ---
+  - DOMAIN-SUFFIX,apissl.ksapisrv.com
+
+  # --- 囧次元 ---
+  - DOMAIN-SUFFIX,pstatp.com
+
+  # --- 百度贴吧 ---
+  - DOMAIN-SUFFIX,imgsa.baidu.com
+  - DOMAIN-SUFFIX,tb.himg.baidu.com
+  - DOMAIN-SUFFIX,tiebapic.baidu.com
+  - DOMAIN-SUFFIX,tiebac.baidu.com
+  - DOMAIN-SUFFIX,tieba.baidu.com
+
+  # --- 微信 ---
+  - DOMAIN-SUFFIX,gm.mmstat.com
+  - DOMAIN-SUFFIX,wx.qlogo.cn
+
+  # --- UC浏览器 ---
+  - DOMAIN-SUFFIX,image.uczzd.cn
+
+  # --- 喵趣漫画 ---
+  - DOMAIN-SUFFIX,cache.umengcn.org
+  - DOMAIN-SUFFIX,search.umengcn.org
+
+  # --- 抖音 ---
+  - DOMAIN-SUFFIX,rmc.bytedance.com
+  - DOMAIN-SUFFIX,verify-hj.zijieapi.com
