@@ -1,37 +1,27 @@
 payload:
-  # Description: 番茄小说防误杀 (直连/放行部分) - Updated
-  # Source: https://github.com/changzhaoCZ/fqnovel-adrules
-  # Converted for Clash Rule Provider
+  # Description: 番茄小说防误杀 (回溯版) - Strict
   # 策略建议: DIRECT (直连)
 
-  # 我的消息显示
+  # 我的消息
   - DOMAIN,reading.snssdk.com
   - DOMAIN,lf-fe.fqnovelstatic.com
 
-  # 完整排行榜
+  # 排行榜
   - DOMAIN,lf-normal-gr-sourcecdn.bytegecko.com
 
-  # 首页误拦截 & API 放行
-  # 对应 @@||api*-sinfnormal.fqnovel.com
+  # 首页/API白名单 (精准匹配)
   - DOMAIN-REGEX,^api.*-sinfnormal\.fqnovel\.com
-  
-  # 对应 @@||api5-normal-sinfonlinec.fqnovel.com/reading/bookapi/
   - DOMAIN,api5-normal-sinfonlinec.fqnovel.com
-  
-  # 对应 @@||api*-normal-sinfonline*.fqnovel.com/reading/bookapi/
   - DOMAIN-REGEX,^api.*-normal-sinfonline.*\.fqnovel\.com
 
-  # 抖音账号登录
+  # 登录
   - DOMAIN,security.snssdk.com
 
-  # 金币福利页面
+  # 金币福利
   - DOMAIN,lf-sourcecdn-tos.bytegecko.com
 
-  # 漫画与插图修复
+  # 漫画插图
   - DOMAIN,p3-novel1-sign.byteimg.com
   - DOMAIN,p6-novel1-sign.byteimg.com
   - DOMAIN,p9-novel1-sign.byteimg.com
-  
-  # 出版读物插图修复
-  # 对应 @@||p*-novel-sign.byteimg.com
   - DOMAIN-REGEX,^p.*-novel-sign\.byteimg\.com
