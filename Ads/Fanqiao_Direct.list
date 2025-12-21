@@ -1,26 +1,21 @@
 payload:
-  # Description: 番茄小说防误杀 (回溯版) - Strict
-  # 策略建议: DIRECT (直连)
+  # Description: 番茄小说防误杀 (优化版)
+  # 使用正则精准放行 API，防止放行广告
 
-  # 我的消息
+  # --- 消息 & 基础 ---
   - DOMAIN,reading.snssdk.com
   - DOMAIN,lf-fe.fqnovelstatic.com
-
-  # 排行榜
   - DOMAIN,lf-normal-gr-sourcecdn.bytegecko.com
+  - DOMAIN,security.snssdk.com
+  - DOMAIN,lf-sourcecdn-tos.bytegecko.com
 
-  # 首页/API白名单 (精准匹配)
+  # --- 核心 API 放行 (正则) ---
+  # 只放行 api 开头的特定格式，不放行 ads 开头
   - DOMAIN-REGEX,^api.*-sinfnormal\.fqnovel\.com
   - DOMAIN,api5-normal-sinfonlinec.fqnovel.com
   - DOMAIN-REGEX,^api.*-normal-sinfonline.*\.fqnovel\.com
 
-  # 登录
-  - DOMAIN,security.snssdk.com
-
-  # 金币福利
-  - DOMAIN,lf-sourcecdn-tos.bytegecko.com
-
-  # 漫画插图
+  # --- 图片资源修复 ---
   - DOMAIN,p3-novel1-sign.byteimg.com
   - DOMAIN,p6-novel1-sign.byteimg.com
   - DOMAIN,p9-novel1-sign.byteimg.com
