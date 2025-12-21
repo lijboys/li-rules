@@ -1,8 +1,8 @@
 payload:
-  # Description: 番茄小说去广告 (回溯版) - Broad
-  # 策略建议: REJECT (拦截)
+  # Description: 番茄小说去广告 (优化版)
+  # 包含正则匹配，杀伤力更强
 
-  # --- 关键词 (暴力拦截) ---
+  # --- 关键词 (基础拦截) ---
   - DOMAIN-KEYWORD,static
   - DOMAIN-KEYWORD,sealaly
   - DOMAIN-KEYWORD,toutiao
@@ -23,7 +23,7 @@ payload:
   - DOMAIN-KEYWORD,ttweb
   - DOMAIN-KEYWORD,sinfonlinec
 
-  # --- 域名 ---
+  # --- 域名 (精准拦截) ---
   - DOMAIN,mssdk.zijieapi.com
   - DOMAIN,lf3-reading.fqnovelpic.com
   - DOMAIN,feedback-c.zijieapi.com
@@ -38,12 +38,14 @@ payload:
   - DOMAIN,ecombdimg.com
   - DOMAIN,polaris.zijieapi.com
 
-  # --- 正则 (通配符还原) ---
+  # --- 正则匹配 (高级拦截 - 核心部分) ---
+  # 拦截 ads1-normal, ads2-normal 等变种
   - DOMAIN-REGEX,^ads.*-normal-.*\.zijieapi\.com
   - DOMAIN-REGEX,^gecko.*\.zijieapi\.com
+  # 拦截短剧广告
   - DOMAIN-REGEX,^lf.*-webcast-cdn-tos-ncdn\.bytegecko\.com
   - DOMAIN-REGEX,^mon.*-misc-.*\.fqnovel\.com
   - DOMAIN-REGEX,^[a-zA-Z0-9.-]*-normal\.zijieapi\.com
-  
-  # 后缀 (慎用，原AdGuard规则包含)
+
+  # --- 后缀 ---
   - DOMAIN-SUFFIX,douyinpic.com
