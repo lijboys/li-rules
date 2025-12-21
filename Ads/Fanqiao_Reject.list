@@ -1,23 +1,24 @@
 payload:
-  # Description: 番茄小说去广告 (优化版)
-  # 包含正则匹配，杀伤力更强
+  # Description: 番茄小说去广告 (优化防误杀版)
+  # 剔除了高危通用关键词，保留精准正则和特定域名
 
-  # --- 关键词 (基础拦截) ---
-  - DOMAIN-KEYWORD,static
+  # --- 关键词 (基础拦截 - 已修剪高危词) ---
+  # [警告] 以下关键词在无 app 限制下极易误杀，已注释
+  # - DOMAIN-KEYWORD,static     # 杀伤力过大，误杀所有静态资源
   - DOMAIN-KEYWORD,sealaly
-  - DOMAIN-KEYWORD,toutiao
+  # - DOMAIN-KEYWORD,toutiao    # 会误杀今日头条
   - DOMAIN-KEYWORD,bsgslb
-  - DOMAIN-KEYWORD,misc
-  - DOMAIN-KEYWORD,douyin
+  # - DOMAIN-KEYWORD,misc       # 误杀通用杂项域名
+  # - DOMAIN-KEYWORD,douyin     # 会误杀抖音
   - DOMAIN-KEYWORD,ecombd
-  - DOMAIN-KEYWORD,byte
+  # - DOMAIN-KEYWORD,byte       # 误杀字节跳动全系
   - DOMAIN-KEYWORD,0kkkkkt
   - DOMAIN-KEYWORD,cjjd14
   - DOMAIN-KEYWORD,ietheivaicai
-  - DOMAIN-KEYWORD,stream
+  # - DOMAIN-KEYWORD,stream     # 误杀流媒体
   - DOMAIN-KEYWORD,siomxity
-  - DOMAIN-KEYWORD,applog
-  - DOMAIN-KEYWORD,pstatp
+  # - DOMAIN-KEYWORD,applog     # 误杀日志上报(可选)
+  # - DOMAIN-KEYWORD,pstatp     # 误杀字节系图片
   - DOMAIN-KEYWORD,qtaeixd
   - DOMAIN-KEYWORD,erer
   - DOMAIN-KEYWORD,ttweb
@@ -48,4 +49,4 @@ payload:
   - DOMAIN-REGEX,^[a-zA-Z0-9.-]*-normal\.zijieapi\.com
 
   # --- 后缀 ---
-  - DOMAIN-SUFFIX,douyinpic.com
+  # - DOMAIN-SUFFIX,douyinpic.com # 可能会误杀抖音图片，建议注释
