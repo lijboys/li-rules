@@ -1,0 +1,4 @@
+payload:
+  - DOMAIN,mon.zijieapi.com
+  - DOMAIN,polaris.zijieapi.com
+  - DOMAIN-REGEX,^ads\d*-normal-.*\.zijieapi\.com
