@@ -1,4 +1,10 @@
-# --- 基础参数 ---
+#!name: NooM Pro Template
+#NAME: NooM Pro Template
+# ========================
+# NooM Pro Template
+# 远程配置模板版：已移除内置订阅，适配 sublinks / 订阅转换
+# ========================
+
 port: 7890
 socks-port: 7891
 redir-port: 7892
@@ -7,27 +13,24 @@ tproxy-port: 7895
 allow-lan: true
 mode: rule
 log-level: info
-ipv6: false 
+ipv6: false
 secret: "123456"
 
-# --- Web UI ---
 external-controller: 127.0.0.1:9090
 external-ui: ui
 external-ui-name: zashboard
 external-ui-url: https://gh-proxy.com/github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip
 
-# --- 缓存设置 ---
 profile:
   store-selected: true
   store-fake-ip: true
 
-# --- DNS 设置 (纯净版) ---
 dns:
   enable: true
   listen: 0.0.0.0:7874
-  ipv6: false 
+  ipv6: false
   enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16 
+  fake-ip-range: 198.18.0.1/16
   nameserver:
     - 223.5.5.5
     - 119.29.29.29
@@ -38,38 +41,38 @@ dns:
     - "*.lan"
     - "stun.*"
 
-# --- TUN 模式 ---
 tun:
   enable: true
-  stack: system 
+  stack: system
   device: utun
   auto-route: true
   auto-detect-interface: true
 
-# 恢复原生底层直连/拒绝节点定义 (订阅转换后的节点会自动追加到这里)
 proxies:
   - {name: 直连, type: direct}
   - {name: 拒绝, type: reject}
 
-# ========================
-# 策略组 (Pro Layout)
-# ========================
 default: &default
   type: select
   icon: "https://github.545024.xyz/raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png"
   proxies: [所有-手动, 所有-自动, 🇭🇰 香港地区, 🇨🇳 台湾地区, 🇯🇵 日本地区, 🇸🇬 新加坡, 🇰🇷 韩国地区, 🇺🇸 美国地区, 🇪🇺 其他地区, 直连, 拒绝]
 
 proxy-groups:
-  # ============================================
-  # 根据您的要求严格排序 (已全面添加高清图标)
-  # ============================================
   - name: 所有-手动
     type: select
     icon: "https://github.545024.xyz/raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png"
-    proxies: [所有-自动]
+    proxies:
+      - 所有-自动
+      - ⚡ 香港自动
+      - ⚡ 台湾自动
+      - ⚡ 日本自动
+      - ⚡ 狮城自动
+      - ⚡ 韩国自动
+      - ⚡ 美国自动
+      - ⚡ 其他自动
     include-all: true
     filter: "^((?!(直连|拒绝)).)*$"
-    
+
   - name: 所有-自动
     type: fallback
     icon: "https://github.545024.xyz/raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png"
@@ -127,7 +130,7 @@ proxy-groups:
 
   - {name: Emby, <<: *default, icon: "https://github.545024.xyz/raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png"}
   - {name: 🎮 游戏服务, <<: *default, icon: "https://github.545024.xyz/raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png"}
-  
+
   - name: 🎮 Steam下载
     type: select
     icon: "https://github.545024.xyz/raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Steam.png"
@@ -150,14 +153,11 @@ proxy-groups:
   - {name: 🇰🇷 韩国地区, type: select, icon: "https://github.545024.xyz/raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/KR.png", proxies: [⚡ 韩国自动], include-all: true, filter: "(?=.*(广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"}
   - {name: 🇪🇺 其他地区, type: select, icon: "https://github.545024.xyz/raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/EU.png", proxies: [⚡ 其他自动], include-all: true, filter: "^((?!(直连|拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).)*$"}
 
-  # ============================================
-  # [隐藏组] 预留的后手与自动兜底，不占用面板空间
-  # ============================================
   - name: 🇨🇳 国内必应
     type: select
     hidden: true
     proxies: [直连, 🇺🇸 美国地区, 🇭🇰 香港地区, 🤖 人工智能, 所有-手动, 所有-自动]
-    
+
   - {name: ⚡ 香港自动, type: fallback, include-all: true, interval: 300, hidden: true, url: "http://www.gstatic.com/generate_204", filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"}
   - {name: ⚡ 台湾自动, type: fallback, include-all: true, interval: 300, hidden: true, url: "http://www.gstatic.com/generate_204", filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"}
   - {name: ⚡ 日本自动, type: fallback, include-all: true, interval: 300, hidden: true, url: "http://www.gstatic.com/generate_204", filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"}
@@ -166,13 +166,7 @@ proxy-groups:
   - {name: ⚡ 美国自动, type: fallback, include-all: true, interval: 300, hidden: true, url: "http://www.gstatic.com/generate_204", filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"}
   - {name: ⚡ 其他自动, type: fallback, include-all: true, interval: 300, hidden: true, url: "http://www.gstatic.com/generate_204", filter: "^((?!(直连|拒绝|广港|香港|HK|Hong Kong|🇭🇰|HongKong|广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan|广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan|广新|新加坡|SG|坡|狮城|🇸🇬|Singapore|广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea|广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).)*$"}
 
-# ========================
-# 规则引擎
-# ========================
 rules:
-  # --------------------
-  # [新增] Emby 反代直连规则
-  # --------------------
   - DOMAIN-SUFFIX,emby.spsr88.sbs,直连
   - DOMAIN-SUFFIX,auto.embys.dpdns.org,直连
   - DOMAIN-SUFFIX,emby.tempomail.sbs,直连
@@ -180,28 +174,20 @@ rules:
   - DOMAIN-SUFFIX,v6dongman.theluyuan.com,直连
   - DOMAIN-SUFFIX,car.545024.xyz,直连
   - DOMAIN-SUFFIX,emby.noomi.eu.cc,直连
-  - DOMAIN-SUFFIX,ct.cdn.bgp.yt,直连 #二次元emby
-  - DOMAIN-SUFFIX,cu.cdn.bgp.yt,直连 #二次元emby
-  - DOMAIN-SUFFIX,4348663.xyz,直连 #月之轩emby
+  - DOMAIN-SUFFIX,ct.cdn.bgp.yt,直连
+  - DOMAIN-SUFFIX,cu.cdn.bgp.yt,直连
+  - DOMAIN-SUFFIX,4348663.xyz,直连
+  - DOMAIN-SUFFIX,emby.my,直连
+  - DOMAIN-SUFFIX,test.28.al,直连
 
-  - DOMAIN-SUFFIX,emby.my,直连 #月饼
-  - DOMAIN-SUFFIX,test.28.al,直连 #起点公测
-
-
-  # --------------------
-  # [新增] Emby 网盘/302重定向拦截
-  # --------------------
   - DOMAIN-SUFFIX,microsoftpersonalcontent.com,Emby
   - DOMAIN-SUFFIX,sharepoint.com,Emby
   - DOMAIN-SUFFIX,1drv.com,Emby
 
-  # --------------------
-  # [内置] Emby 原生服务器规则
-  # --------------------
   - DOMAIN-SUFFIX,link00.okemby.org,Emby
   - DOMAIN-SUFFIX,link01.okemby.org,Emby
   - DOMAIN-SUFFIX,xueshan.liminalnet.com,Emby
-  - DOMAIN-SUFFIX,gy.meowfly.de,Emby #喵了个喵
+  - DOMAIN-SUFFIX,gy.meowfly.de,Emby
   - DOMAIN-SUFFIX,emby.ichinosekotomi.com,Emby
   - DOMAIN-SUFFIX,guaiguaiemby.83787.de,Emby
   - DOMAIN-SUFFIX,emby.dnscf.dpdns.org,Emby
@@ -212,24 +198,17 @@ rules:
   - DOMAIN-SUFFIX,media.nijigem.by,Emby
   - DOMAIN-SUFFIX,speedtestdeemby.191920.xyz,Emby
   - DOMAIN-SUFFIX,lite.cn2gias.uk,Emby
-  - DOMAIN-SUFFIX,gy1.66990000.xyz,Emby #小姨子emby
-  
-  # --------------------
-  - DOMAIN-SUFFIX,pway.kc2.top,直连 # 滴滴批发网付款码
-  - DOMAIN-SUFFIX,komari.545024.xyz,直连 # komari探针
+  - DOMAIN-SUFFIX,gy1.66990000.xyz,Emby
 
-  # --------------------
-  # [修复] 微软与必应 (Copilot & Bing)
-  # --------------------
+  - DOMAIN-SUFFIX,pway.kc2.top,直连
+  - DOMAIN-SUFFIX,komari.545024.xyz,直连
+
   - DOMAIN,cn.bing.com,🇨🇳 国内必应
   - DOMAIN-SUFFIX,bing.com,Ⓜ️ 微软服务
   - DOMAIN-SUFFIX,copilot.microsoft.com,🤖 人工智能
   - DOMAIN-SUFFIX,sydney.bing.com,🤖 人工智能
   - DOMAIN-KEYWORD,copilot,🤖 人工智能
 
-  # --------------------
-  # [重点] Google & AI
-  # --------------------
   - DOMAIN-KEYWORD,gemini,🤖 人工智能
   - GEOSITE,google,Google
   - DOMAIN-KEYWORD,cursor,🤖 人工智能
@@ -237,9 +216,6 @@ rules:
   - GEOSITE,openai,🤖 人工智能
   - GEOSITE,anthropic,🤖 人工智能
 
-  # --------------------
-  # 其他规则
-  # --------------------
   - GEOSITE,tiktok,📺 国外媒体
   - GEOSITE,twitter,X
 
@@ -252,23 +228,17 @@ rules:
   - GEOSITE,telegram,📲 电报消息
   - GEOSITE,facebook,💬 社交媒体
   - GEOSITE,instagram,💬 社交媒体
-  
   - GEOSITE,youtube,📺 国外媒体
   - GEOSITE,netflix,📺 国外媒体
 
-  # [修复] 游戏与 Steam 专属优化
-  # --------------------
-  # 1. Steam 下载 CDN (默认直连，可手动切代理加速)
   - DOMAIN-SUFFIX,steamcontent.com,🎮 Steam下载
   - DOMAIN-SUFFIX,steamserver.net,🎮 Steam下载
   - DOMAIN-SUFFIX,steamcdn-a.akamaihd.net,🎮 Steam下载
   - GEOSITE,steam@cn,🎮 Steam下载
-  
-  # 2. 国服/国内体验极佳的游戏区 (默认直连，需要时也可手动切代理)
+
   - GEOSITE,category-games@cn,🎮 国内游戏
   - GEOSITE,epicgames,🎮 国内游戏
-  
-  # 3. Steam 商店/社区及国外游戏平台 (必须走代理，否则商店打不开)
+
   - GEOSITE,steam,🎮 游戏服务
   - GEOSITE,ea,🎮 游戏服务
   - GEOSITE,blizzard,🎮 游戏服务
@@ -276,9 +246,7 @@ rules:
 
   - GEOSITE,github,🌍 国外流量
   - GEOSITE,category-dev,🌍 国外流量
-  
-  # [分流] 微软 & 苹果
-  # --- 1. 修复 Outlook 邮件客户端收发 (仅精准直连底层收发信服务器) ---
+
   - DOMAIN,outlook.office365.com,直连
   - DOMAIN,smtp.office365.com,直连
   - DOMAIN,imap-mail.outlook.com,直连
@@ -286,8 +254,7 @@ rules:
   - DOMAIN,pop-mail.outlook.com,直连
   - DOMAIN,eas.outlook.com,直连
   - DOMAIN,m.hotmail.com,直连
-  
-  # --- 2. 修复 Rewards 与网页版 (强制走代理统一 IP，防止风控和地区报错) ---
+
   - DOMAIN-SUFFIX,live.com,Ⓜ️ 微软服务
   - DOMAIN-SUFFIX,live.net,Ⓜ️ 微软服务
   - DOMAIN-SUFFIX,microsoftaccount.com,Ⓜ️ 微软服务
@@ -299,19 +266,17 @@ rules:
   - DOMAIN-SUFFIX,office365.com,Ⓜ️ 微软服务
   - DOMAIN-SUFFIX,outlook.com,Ⓜ️ 微软服务
   - DOMAIN-SUFFIX,hotmail.com,Ⓜ️ 微软服务
-  
-  # --- 3. 常规微软与苹果分流 ---
+
   - GEOSITE,microsoft@cn,直连
   - GEOSITE,microsoft,Ⓜ️ 微软服务
   - GEOSITE,apple-cn,🍎 苹果服务
   - GEOSITE,apple,🍎 苹果服务
-  
+
   - GEOSITE,cn,直连
   - GEOSITE,amazon,🌍 国外流量
   - GEOSITE,geolocation-!cn,🌍 国外流量
   - MATCH,🐟 漏网之鱼
 
-# --- 规则集定义 ---
 rule-anchor:
   class: &class {type: http, interval: 86400, behavior: classical, format: text}
   domain: &domain {type: http, interval: 86400, behavior: domain, format: mrs}
